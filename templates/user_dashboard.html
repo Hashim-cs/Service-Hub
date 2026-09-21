@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <!-- WELCOME -->
+        <div class="dashboard-header">
+            <h2>Welcome, {{ session["user_name"] }} 👋</h2>
+            <p>Manage your bookings and explore services</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>{{ total }}</h3>
+                <p>Total Bookings</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ pending }}</h3>
+                <p>Pending</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ completed }}</h3>
+                <p>Completed</p>
+            </div>
+
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="actions-grid">
+
+            <a href="/services" class="action-card">
+                <h3>Browse Services</h3>
+                <p>Find and book new services</p>
+            </a>
+
+            <a href="/my-bookings" class="action-card">
+                <h3>My Bookings</h3>
+                <p>Track your service requests</p>
+            </a>
+
+            <a href="/logout" class="action-card">
+                <h3>Logout</h3>
+                <p>Sign out of your account</p>
+            </a>
+
+        </div>
+
+        <!-- RECENT BOOKINGS -->
+        <div class="recent-bookings">
+
+            <h3>Recent Bookings</h3>
+
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+
+                {% if recent|length == 0 %}
+                <tr>
+                    <td colspan="3">No bookings yet</td>
+                </tr>
+                {% endif %}
+
+                {% for b in recent %}
+                <tr>
+                    <td>{{ b[3] }}</td>
+                    <td>{{ b[4] }}</td>
+                    <td class="{{ b[8]|lower }}">{{ b[8] }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

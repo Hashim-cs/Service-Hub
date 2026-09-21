@@ -1,0 +1,42 @@
+ {% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+    <div class="container">
+
+        <h2 class="section-title_login">Login to Your Account</h2>
+
+        <div class="login-grid">
+ <!-- PROVIDER LOGIN -->
+            <div class="login-card">
+                <h3>Service Provider Login</h3>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert-success">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+                <form method="POST" action="/login-provider">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <br>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <br>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+                <p class="login-extra">
+    Don't have an account? 
+    <a href="#" onclick="openPopup()">Register Now</a>
+</p>
+
+            </div>
+             </div>
+
+    </div>
+</section>
+{% endblock %}

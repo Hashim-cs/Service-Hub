@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}About ServiceHub{% endblock %}
+
+{% block content %}
+
+<section class="about-page">
+
+<div class="container">
+
+<!-- SECTION 1 -->
+<div class="about-section">
+
+<div class="about-text">
+<h2>About ServiceHub</h2>
+<p>
+ServiceHub is an online service marketplace designed to connect customers with trusted service providers for various home services. The platform simplifies the process of booking professional help, making it fast, secure, and convenient.
+</p>
+</div>
+
+<div class="about-img">
+<img src="{{ url_for('static', filename='images/about/about-story.jpg') }}">
+</div>
+
+</div>
+
+<!-- SECTION 2 -->
+<div class="about-section reverse">
+
+<div class="about-img">
+<img src="{{ url_for('static', filename='images/about/objective.jpg') }}">
+</div>
+
+<div class="about-text">
+<h2>Project Objective</h2>
+<p>
+The primary objective of this project is to develop an efficient web-based system that bridges the gap between customers and local service providers while ensuring transparency, reliability, and ease of use.
+</p>
+</div>
+
+</div>
+
+<!-- SECTION 3 -->
+<div class="about-section">
+
+<div class="about-text">
+<h2>Technology Stack</h2>
+<ul>
+<li>Frontend: HTML, CSS, JavaScript</li>
+<li>Backend: Python Flask</li>
+<li>Database: MySQL</li>
+<li>Charts: Chart.js</li>
+</ul>
+</div>
+
+<div class="about-img">
+<img src="{{ url_for('static', filename='images/about/tech-stack.png') }}">
+</div>
+
+</div>
+
+<!-- SECTION 4 -->
+<div class="about-section reverse">
+
+<div class="about-img">
+<img src="{{ url_for('static', filename='images/about/future.jpg') }}">
+</div>
+
+<div class="about-text">
+<h2>Future Enhancements</h2>
+<p>
+Future improvements may include real-time chat, online payment integration, location-based provider matching, and AI-driven service recommendations to further enhance the user experience.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+{% endblock %}

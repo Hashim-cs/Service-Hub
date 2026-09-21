@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Service Marketplace{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-container">
+
+        <div class="logo">
+    <a href="/" class="logo-wrap">
+        <img src="{{ url_for('static', filename='images/site_logo.png') }}" class="site-logo">
+        <span>ServiceHub</span>
+    </a>
+</div>
+
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <a href="#" onclick="openLoginPopup()">Login</a>
+            <a href="/admin-login" class="btn-admin">Admin</a>
+            <li><a href="/about">About</a></li>
+            <a href="#" class="btn-nav" onclick="openPopup()">Register</a>
+
+        </ul>
+
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- REGISTER POPUP -->
+
+<div id="registerPopup" class="popup">
+    <div class="popup-content">
+
+        <span class="close-btn" onclick="closePopup()">×</span>
+
+        <h3>Select Registration Type</h3>
+
+        <div class="popup-buttons">
+            <a href="/register-user" class="popup-btn">User</a>
+            <a href="/register-provider" class="popup-btn">Service Provider</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- LOGIN POPUP -->
+
+<div id="loginPopup" class="popup">
+    <div class="popup-content">
+
+        <span class="close-btn" onclick="closeLoginPopup()">×</span>
+
+        <h3>Select Login Type</h3>
+
+        <div class="popup-buttons">
+            <a href="/login-user" class="popup-btn">User Login</a>
+            <a href="/login-provider" class="popup-btn">Service Provider Login</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer-container">
+
+        <div class="footer-col">
+            <h3>ServiceHub</h3>
+            <p>Book trusted professionals for home services quickly and easily.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/login">Login</a>
+        </div>
+
+        <div class="footer-col">
+    <h3>Contact</h3>
+
+    <div class="contact-info">
+        <p>Email: servicehub0809@gmail.com</p>
+        <p>Phone: +91 86003 09803</p>
+    </div>
+</div>
+
+        <div class="footer-col">
+    <h3>Follow Us On</h3>
+
+    <div class="social-links">
+
+        <a href="https://whatsapp.com/channel/0029VbBYEvI6hENp9Nh8TU1H" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+        </a>
+
+        <a href="https://www.instagram.com/servicehub_12?igsh=MW4zODBpNjFpajZl" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+        </a>
+
+        <a href="https://x.com/servicehub_12" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+            X (Twitter)
+        </a>
+
+    </div>
+</div>
+
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ServiceHub. All rights reserved.</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+function confirmAction(btn) {
+    if(confirm("Are you sure you want to confirm? This can't be undone.")) {
+        btn.style.pointerEvents = "none";
+        btn.style.opacity = "0.6";
+        return true;
+    }
+    return false;
+}
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

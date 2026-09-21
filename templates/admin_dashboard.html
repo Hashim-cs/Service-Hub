@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <h2>Admin Dashboard 👑</h2>
+            <p>Manage users, providers and bookings</p>
+        </div>
+
+        <!-- STATS -->
+       <div class="stats-grid">
+
+    <div class="stat-card">
+        <h3>{{ users }}</h3>
+        <p>Total Users</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>{{ providers }}</h3>
+        <p>Total Providers</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>{{ bookings }}</h3>
+        <p>Total Bookings</p>
+    </div>
+
+</div>
+
+        <!-- ACTIONS -->
+        <div class="actions-grid admin-actions">
+
+            <a href="/admin-users" class="action-card">
+                <h3>Manage Users</h3>
+                <p>View all registered users</p>
+            </a>
+
+            <a href="/admin-providers" class="action-card">
+                <h3>Manage Providers</h3>
+                <p>View all service providers</p>
+            </a>
+
+            <a href="/admin-bookings" class="action-card">
+                <h3>View Bookings</h3>
+                <p>Monitor all service requests</p>
+            </a>
+
+<a href="/admin-change-password" class="action-card">
+    <h3>Change Password</h3>
+    <p>Update admin login password</p>
+</a>
+
+<a href="/admin-reports" class="action-card">
+    <h3>Reports</h3>
+    <p>View booking analytics and system stats</p>
+</a>
+
+<a href="/logout" class="action-card">         
+    <h3>Logout</h3>
+    <p>Sign out of admin panel</p>
+</a>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Job History{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <div class="dashboard-header">
+            <h2>Job History</h2>
+            <p>View your completed service jobs</p>
+        </div>
+
+        <div class="recent-bookings">
+
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                </tr>
+
+                {% if history|length == 0 %}
+                <tr>
+                    <td colspan="6" class="no-data">
+                        No completed jobs yet
+                    </td>
+                </tr>
+                {% endif %}
+
+                {% for h in history %}
+                <tr>
+                    <td>{{ h[0] }}</td>
+                    <td>{{ h[1] }}</td>
+                    <td>{{ h[2] }}</td>
+                    <td>{{ h[3] }}</td>
+                    <td>{{ h[4] }}</td>
+                    <td class="completed">Completed</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

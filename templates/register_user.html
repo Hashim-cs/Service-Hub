@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}User Registration{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+    <div class="container">
+
+        <h2 class="section-title_login">Create User Account</h2>
+
+        <div class="login-grid">
+
+            <div class="login-card">
+                
+                {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+{% endwith %}
+
+                <form method="POST" action="/register-user">
+
+                    <input type="text" name="name" placeholder="Full Name" required>
+
+                    <input type="email" name="email" placeholder="Email Address" required>
+
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+
+                    <input type="password" name="password" placeholder="Password" required>
+
+                    <input type="password" name="confirm" placeholder="Confirm Password" required>
+
+                    <button type="submit" class="btn-login">Register</button>
+
+                </form>
+
+                <p class="login-extra">
+                    Already have an account?
+                    <a href="/login">Login Now</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <div class="dashboard-header">
+            <h2>My Bookings</h2>
+            <p>Track all your service requests</p>
+        </div>
+
+        <div class="recent-bookings">
+
+  <table>
+<tr>
+    <th>Service</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Status</th>
+    <th>Provider</th>
+    <th>Contact</th>
+    <th>Action</th>
+</tr>
+
+{% if bookings|length == 0 %}
+<tr>
+    <td colspan="7">No bookings found</td>
+</tr>
+{% endif %}
+
+{% for b in bookings %}
+<tr>
+    <td>{{ b[1] }}</td>
+    <td>{{ b[2] }}</td>
+    <td>{{ b[3] }}</td>
+    <td class="{{ b[4]|lower }}">{{ b[4] }}</td>
+    <td>{{ b[5] if b[5] else "Waiting" }}</td>
+    <td>{{ b[6] if b[6] else "-" }}</td>
+
+    <td>
+        {% if b[4] == 'Provider_Completed' %}
+        <a href="/confirm-completion/{{ b[0] }}"
+           onclick="return confirmAction(this)"
+           class="btn-accept">
+           Confirm
+        </a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

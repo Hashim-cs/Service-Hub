@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container hero-container">
+
+        <div class="hero-text">
+            <h1>Book Trusted Services at Your Doorstep</h1>
+            <p>
+                Find professional electricians, plumbers, beauticians and more.
+                Quick booking, verified experts, and affordable prices.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/services" class="btn-primary">Explore Services</a>
+                <a href="/register-provider" class="btn-secondary">Join as Provider</a>
+            </div>
+        </div>
+
+       <div class="hero-image">
+    <img id="heroImg" src="{{ url_for('static', filename='images/services/electrician.png') }}">
+</div>
+
+
+    </div>
+</section>
+
+
+<!-- HERO SECTION END -->
+
+<!-- ===== SERVICE CATEGORIES ===== -->
+
+<section class="categories">
+    <div class="container">
+
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Choose from a wide range of professional home services</p>
+
+        <div class="categories-grid">
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/electrician_logo.png') }}">
+                <h3>Electrician</h3>
+            </div>
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/plumber_logo.png') }}">
+                <h3>Plumbing</h3>
+            </div>
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/cleaning_logo.png') }}">
+                <h3>Cleaning</h3>
+            </div>
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/beauty_logo.png') }}">
+                <h3>Beauty Services</h3>
+            </div>
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/ac _repair_logo.png') }}">
+                <h3>AC Repair</h3>
+            </div>
+
+            <div class="category-card">
+                <img src="{{ url_for('static', filename='images/services/painter_logo.png') }}">
+                <h3>Painting</h3>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+
+<section class="how-works">
+    <div class="container">
+
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Book your service in just three simple steps</p>
+
+        <div class="works-grid">
+
+            <div class="work-card">
+                <div class="icon">🔍</div>
+                <h3>Choose Service</h3>
+                <p>Select from a wide range of professional home services.</p>
+            </div>
+
+            <div class="work-card">
+                <div class="icon">📅</div>
+                <h3>Book Appointment</h3>
+                <p>Select your preferred date and time slot easily.</p>
+            </div>
+
+            <div class="work-card">
+                <div class="icon">🏠</div>
+                <h3>Get Service at Home</h3>
+                <p>Our expert will arrive and complete the job quickly.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ===== WHY CHOOSE US ===== -->
+
+<section class="why-us">
+    <div class="container">
+
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-subtitle">We provide reliable and trusted home services</p>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <img src="{{ url_for('static', filename='images/icons/verified.png') }}">
+                <h3>Verified Professionals</h3>
+                <p>All service providers are background verified.</p>
+            </div>
+
+            <div class="why-card">
+                <img src="{{ url_for('static', filename='images/icons/fast.png') }}">
+                <h3>Quick Booking</h3>
+                <p>Book services instantly with flexible time slots.</p>
+            </div>
+
+            <div class="why-card">
+                <img src="{{ url_for('static', filename='images/icons/affordable.png') }}">
+                <h3>Affordable Pricing</h3>
+                <p>Transparent pricing with no hidden charges.</p>
+            </div>
+
+            <div class="why-card">
+                <img src="{{ url_for('static', filename='images/icons/support.png') }}">
+                <h3>24/7 Support</h3>
+                <p>Our team is always ready to assist you anytime.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ===== TESTIMONIALS ===== -->
+
+<section class="testimonials">
+    <div class="container">
+
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Trusted by thousands of happy customers</p>
+
+        <div class="testimonial-slider">
+
+            <div class="testimonial active">
+                <p>"Excellent service! The electrician arrived on time and fixed everything perfectly."</p>
+                <h4>- Rahul Sharma</h4>
+            </div>
+
+            <div class="testimonial">
+                <p>"Very affordable pricing and professional staff. Highly recommended!"</p>
+                <h4>- Sneha Patil</h4>
+            </div>
+
+            <div class="testimonial">
+                <p>"Booking was super easy and the service quality was amazing."</p>
+                <h4>- Amit Verma</h4>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Provider Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <h2>Welcome, {{ session["provider_name"] }} 👨‍🔧</h2>
+            <p>Manage your service requests and track jobs</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3>{{ total }}</h3>
+                <p>Total Requests</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ pending }}</h3>
+                <p>Pending Jobs</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ completed }}</h3>
+                <p>Completed Jobs</p>
+            </div>
+
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="actions-grid">
+
+            <a href="/provider-requests" class="action-card">
+                <h3>View Requests</h3>
+                <p>Check new booking requests</p>
+            </a>
+
+            <a href="/provider-history" class="action-card">
+                <h3>Job History</h3>
+                <p>See completed services</p>
+            </a>
+
+            <a href="/logout" class="action-card">
+                <h3>Logout</h3>
+                <p>Sign out of your account</p>
+            </a>
+
+        </div>
+
+        <!-- RECENT REQUESTS -->
+        <div class="recent-bookings">
+
+            <h3>Recent Requests</h3>
+
+            <table>
+                <tr>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for r in recent %}
+                <tr>
+                    <td>{{ r[0] }}</td>
+                    <td>{{ r[1] }}</td>
+                    <td>{{ r[2] }}</td>
+                    <td class="pending">{{ r[3] }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

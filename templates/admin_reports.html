@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+<div class="container">
+
+<div class="dashboard-header">
+<h2>System Analytics</h2>
+<p>Real-time insights of platform activity</p>
+</div>
+
+<div class="export-btn-wrap">
+    <a href="/export-analytics" class="btn-export">
+        Download Analytics PDF
+    </a>
+</div>
+
+<div class="analytics-grid">
+
+    <div class="chart-card">
+        <h3>Booking Status</h3>
+        <canvas id="bookingChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Most Booked Services</h3>
+        <canvas id="serviceChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Monthly Booking Trend</h3>
+        <canvas id="monthlyChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Completion Rate</h3>
+        <canvas id="completionChart"></canvas>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    new Chart(document.getElementById('bookingChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Pending', 'Completed'],
+            datasets: [{
+                data: [{{ pending }}, {{ completed }}],
+                backgroundColor: ['#F59E0B', '#22C55E'],
+                borderWidth: 0
+            }]
+        }
+    });
+
+    new Chart(document.getElementById('serviceChart'), {
+        type: 'bar',
+        data: {
+            labels: {{ services|tojson }},
+            datasets: [{
+                label: 'Bookings',
+                data: {{ counts|tojson }},
+                backgroundColor: '#22C55E'
+            }]
+        }
+    });
+
+    new Chart(document.getElementById('monthlyChart'), {
+        type: 'line',
+        data: {
+            labels: {{ months|tojson }},
+            datasets: [{
+                label: 'Bookings',
+                data: {{ monthCounts|tojson }},
+                borderColor: '#22C55E',
+                backgroundColor: 'rgba(34,197,94,0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        }
+    });
+
+    new Chart(document.getElementById('completionChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Completed', 'Pending'],
+            datasets: [{
+                data: [{{ completed }}, {{ pending }}],
+                backgroundColor: ['#22C55E', '#EF4444'],
+                borderWidth: 0
+            }]
+        }
+    });
+
+});
+</script>
+{% endblock %}

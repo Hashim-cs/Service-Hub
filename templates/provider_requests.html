@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Booking Requests{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="container">
+
+        <div class="dashboard-header">
+            <h2>Booking Requests</h2>
+            <p>Manage incoming service requests</p>
+        </div>
+
+        <div class="recent-bookings">
+
+            <table>
+
+                <tr>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+
+                {% if requests|length == 0 %}
+                <tr>
+                    <td colspan="7" style="text-align:center;">
+                        No booking requests available
+                    </td>
+                </tr>
+                {% endif %}
+
+                {% for r in requests %}
+                <tr>
+
+                    <td>{{ r[1] }}</td>
+                    <td>{{ r[2] }}</td>
+                    <td>{{ r[3] }}</td>
+                    <td>{{ r[4] }}</td>
+                    <td>{{ r[5] }}</td>
+                    <td>{{ r[6] }}</td>
+
+                    <td>
+
+                        <!-- PENDING -->
+                        {% if r[7] == 'Pending' %}
+                        <a href="/accept-booking/{{ r[0] }}" class="btn-accept">
+                            Accept
+                        </a>
+
+                        <a href="/reject-booking/{{ r[0] }}" class="btn-reject">
+                            Reject
+                        </a>
+
+                        <!-- ACCEPTED -->
+                        {% elif r[7] == 'Accepted' %}
+                        <a href="/mark-provider-done/{{ r[0] }}"
+                           onclick="return confirmAction(this)"
+                           class="btn-accept">
+                           Mark Done
+                        </a>
+
+                        <!-- PROVIDER DONE -->
+                        {% elif r[7] == 'Provider_Completed' %}
+                        <span style="color:orange;font-weight:bold;">
+                            Waiting for user confirmation
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

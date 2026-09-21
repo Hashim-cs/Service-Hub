@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+
+<section class="services-page">
+    <div class="container">
+
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Choose from our wide range of professional services</p>
+
+        <div class="services-grid">
+
+            <!-- SERVICE CARD -->
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/electrician_logo.png') }}">
+                <h3>Electrician</h3>
+                <p>Fix wiring, switches, lights and other electrical issues.</p>
+                <a href="/book/Electrician" class="btn-book">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/plumber_logo.png') }}">
+                <h3>Plumbing</h3>
+                <p>Pipe leakage, tap repair and water system maintenance.</p>
+                <a href="/book/Plumber" class="btn-book">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/cleaning_logo.png') }}">
+                <h3>Home Cleaning</h3>
+                <p>Deep cleaning services for homes and offices.</p>
+                <a href="/book/Cleaning" class="btn-book">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/beauty_logo.png') }}">
+                <h3>Beauty Services</h3>
+                <p>Professional beauty and salon services at home.</p>
+                <a href="/book/Beauty" class="btn-book">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/ac _repair_logo.png') }}">
+                <h3>AC Repair</h3>
+                <p>AC servicing, gas refill and repair solutions.</p>
+                <a href="/book/AC Repair" class="btn-book">Book Now</a>
+            </div>
+
+            <div class="service-card">
+                <img src="{{ url_for('static', filename='images/services/painter_logo.png') }}">
+                <h3>Painting</h3>
+                <p>Interior and exterior painting services.</p>
+                <a href="/book/Painting" class="btn-book">Book Now</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

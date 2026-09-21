@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Book Service{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+    <div class="container">
+
+        <h2 class="section-title_login">Book Service</h2>
+
+        <div class="login-grid">
+
+            <div class="login-card">
+
+                <form method="POST">
+
+                    <input type="text" name="service" value="{{ service }}" readonly>
+
+                    <input type="date" name="date" required>
+
+                    <input type="time" name="time" required>
+
+                    <input type="text" name="address" placeholder="Enter Service Address" required>
+
+                    <textarea name="description" placeholder="Describe the issue..." required></textarea>
+
+                    <button type="submit" class="btn-login">Confirm Booking</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
